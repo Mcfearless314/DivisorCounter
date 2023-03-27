@@ -4,7 +4,7 @@ package dk.easv;
 import java.util.Vector;
 import java.util.concurrent.Callable;
 
-public class DivisorCounter implements Runnable, Callable<Result> {
+public class DivisorCounter implements Runnable,Callable<Result> {
 
     private final static Vector<Result> results = new Vector<>();
     private final int minimum;
@@ -16,10 +16,6 @@ public class DivisorCounter implements Runnable, Callable<Result> {
         this.maximum = maximum;
     }
 
-    @Override
-    public void run() {
-        call();
-    }
 
     public static Result getBestResult() {
         Result result = new Result(0, 0);
@@ -48,5 +44,10 @@ public class DivisorCounter implements Runnable, Callable<Result> {
 
         results.add(result);
         return result;
+    }
+
+    @Override
+    public void run() {
+        call();
     }
 }
